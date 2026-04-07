@@ -1,4 +1,4 @@
-# ⚖️ Load Balancer HAProxy — Weighted Round Robin
+#  Load Balancer HAProxy — Weighted Round Robin
 
 Mise en place d'un load balancer HAProxy avec la méthode **Weighted Round Robin** dans le cadre de ma formation à l'IPSSI Lille (2025/2026).
 
@@ -23,7 +23,7 @@ Mise en place d'un load balancer HAProxy avec la méthode **Weighted Round Robin
                 └──────────┘  └───────────┘
 ```
 
-## 📋 Plan d'adressage
+##  Plan d'adressage
 
 | Machine | Interface | Adresse IP |
 |---------|-----------|------------|
@@ -32,7 +32,7 @@ Mise en place d'un load balancer HAProxy avec la méthode **Weighted Round Robin
 | srv-web1 | Back-end | 10.10.10.10/24 |
 | srv-web2 | Back-end | 10.10.10.20/24 |
 
-## ⚙️ Configuration HAProxy
+##  Configuration HAProxy
 
 Le fichier `haproxy.cfg` configure :
 - **Frontend** : écoute sur le port 80
@@ -43,7 +43,7 @@ Le fichier `haproxy.cfg` configure :
 - `srv-web1` : **poids 3** → reçoit **75%** du trafic
 - `srv-web2` : **poids 1** → reçoit **25%** du trafic
 
-## 🚀 Déploiement
+##  Déploiement
 
 ```bash
 # 1. Installer HAProxy sur Debian
@@ -63,7 +63,7 @@ sudo systemctl enable haproxy
 sudo systemctl status haproxy
 ```
 
-## ✅ Test du Weighted Round Robin
+##  Test du Weighted Round Robin
 
 ```bash
 # Envoyer 4 requêtes successives
@@ -78,7 +78,7 @@ done
 # serveur web 2
 ```
 
-## 📊 Interface de statistiques
+##  Interface de statistiques
 
 Accessible via : `http://192.168.10.254:8080/stats`  
 Login : `ha-admin` / Mot de passe : `Azerty/123`
